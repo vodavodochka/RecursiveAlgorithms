@@ -1,0 +1,30 @@
+﻿<Window x:Class="RecursiveAlgorithms.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recursive Algorithms" Height="600" Width="960">
+    <Grid>
+        <Canvas x:Name="MainCanvas" Background="White"/>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical">
+            <ComboBox x:Name="FractalComboBox" SelectionChanged="OnFractalChanged" Width="150" Margin="10" />
+            <StackPanel Orientation="Horizontal">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
+                    <TextBlock Text="Real (cRe)" Margin="10,0,0,0" Width="70" TextAlignment="Center"/>
+                    <TextBox x:Name="RealTextBox" Width="70" Margin="10,5,0,0"
+                             TextChanged="OnRealTextChanged" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Orientation="Vertical"  Margin="60,0,0,0">
+                    <TextBlock Text="Imaginary (cIm)" Margin="10,0,0,0" Width="70" TextAlignment="Center"/>
+                    <TextBox x:Name="ImagineTextBox" Width="70" Margin="10,5,0,0"
+                             TextChanged="OnImagineTextChanged" />
+                </StackPanel>
+            </StackPanel>
+
+            <TextBlock Text="Iterations/Depth:" Margin="10,10,0,0" TextAlignment="Center"/>
+            <TextBox x:Name="IterationsTextBox" Width="150" Margin="10,5,0,0"
+                     TextChanged="OnIterationsTextChanged" />
+
+            <Button Content="Draw" Click="OnDrawButtonClick" Width="150" Margin="10,10,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>
