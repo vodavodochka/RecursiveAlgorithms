@@ -6,7 +6,14 @@
         <Canvas x:Name="MainCanvas" Background="White"/>
 
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Vertical">
-            <ComboBox x:Name="FractalComboBox" SelectionChanged="OnFractalChanged" Width="150" Margin="10" />
+            <ComboBox x:Name="FractalComboBox" SelectionChanged="ComboBox_SelectionChanged" Width="150" Margin="10">
+                <ComboBoxItem>
+                    <TextBlock>Julia Fractal</TextBlock>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <TextBlock>Hanoi Tower</TextBlock>
+                </ComboBoxItem>
+            </ComboBox>
             <StackPanel Orientation="Horizontal">
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Vertical">
                     <TextBlock Text="Real (cRe)" Margin="10,0,0,0" Width="70" TextAlignment="Center"/>

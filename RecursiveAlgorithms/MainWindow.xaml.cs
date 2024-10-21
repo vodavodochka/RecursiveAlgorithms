@@ -31,17 +31,28 @@ namespace RecursiveAlgorithms
                 { "Julia Fractal", new JuliaFractal() }
             };
 
-            FractalComboBox.ItemsSource = _fractals.Keys;
-            FractalComboBox.SelectedIndex = 0;
-            _currentFractal = _fractals[FractalComboBox.SelectedItem.ToString()];
+            _currentFractal = _fractals["Julia Fractal"];
             DataContext = _currentFractal;
         }
 
-        private void OnFractalChanged(object sender, SelectionChangedEventArgs e)
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            _currentFractal = _fractals[FractalComboBox.SelectedItem.ToString()];
-            DataContext = _currentFractal;
+            var comboBox = (ComboBox)sender;
+            var selectedItem = (ComboBoxItem)comboBox.SelectedItem;
+            var contentText = (selectedItem.Content as TextBlock)?.Text;
+
+            switch (contentText)
+            {
+                case "Julia Fractal":
+                    break;
+                case "Hanoi Tower":
+                    var towerWindow = new HanoiTowerPage();
+                    towerWindow.Show();
+                    this.Close();
+                    break;
+            }
         }
+
 
         private void OnRealTextChanged(object sender, TextChangedEventArgs e)
         {
