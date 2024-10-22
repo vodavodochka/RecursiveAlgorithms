@@ -134,7 +134,7 @@ namespace HanoiTowers
             int diskCount = DiskCount();
 
             // Возвращаем позицию для следующего диска
-            return towerCanvas.Height - baseHeight - (diskCount * diskHeight);
+            return towerCanvas.Height - baseHeight - (diskCount * diskHeight) - 20;
         }
 
         // Метод для удаления диска с башни

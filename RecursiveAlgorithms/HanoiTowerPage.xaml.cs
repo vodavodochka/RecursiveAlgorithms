@@ -10,6 +10,7 @@ using LiveCharts.Wpf;
 using LiveCharts;
 using System.Diagnostics;
 using HanoiTowers;
+using ControlzEx.Standard;
 
 namespace RecursiveAlgorithms
 {
@@ -55,21 +56,16 @@ namespace RecursiveAlgorithms
             double minDiskWidth = 50;
             double diskWidthStep = (maxDiskWidth - minDiskWidth) / numberOfDisks;
 
-            Brush[] diskColors = new Brush[]
-            {
-                Brushes.Red, Brushes.Orange, Brushes.Yellow, Brushes.Green,
-                Brushes.Cyan, Brushes.Blue, Brushes.Purple, Brushes.Pink
-            };
-
             // Размещение дисков на первой башне
             for (int i = 0; i < numberOfDisks; i++)
             {
                 double diskWidth = maxDiskWidth - i * diskWidthStep;
+                Color color = i == 0 ? Colors.Black : Color.FromRgb((byte)(i * 70), (byte)(i * 20), (byte)(255 - i * 45));
                 Rectangle disk = new Rectangle
                 {
                     Width = diskWidth,
                     Height = 30,
-                    Fill = diskColors[i % diskColors.Length],
+                    Fill = new SolidColorBrush(color),
                     RadiusX = 10,
                     RadiusY = 10
                 };
@@ -77,7 +73,7 @@ namespace RecursiveAlgorithms
                 towers[0].AddDisk(disk); // Добавляем диск на первую башню
 
                 // Позиционируем диск по вертикали, начиная снизу (от основания)
-                double topPosition = towers[0].towerCanvas.Height - (towers[0].DiskCount() * 30);
+                double topPosition = towers[0].towerCanvas.Height - (towers[0].DiskCount() * 30) - 20;
                 Canvas.SetTop(disk, topPosition);
                 Canvas.SetLeft(disk, (towers[0].towerCanvas.Width / 2) - (disk.Width / 2)); // Центрируем диск
             }
